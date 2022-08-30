@@ -1,6 +1,6 @@
 import React from 'react';
-import iconCross from "./icon-cross.svg"
-import iconCheck from "./icon-check.svg"
+import iconCross from "../icons/icon-cross.svg"
+import iconCheck from "../icons/icon-check.svg"
 import "../styles/todo.css"
 
 const Todo = ({ todo, remove, complete }) => {
