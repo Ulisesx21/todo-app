@@ -1,0 +1,10 @@
+.todoscontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 550px;
+    border-radius: 10px;
+    top: 100px;
+    margin-bottom: 100px;
+}

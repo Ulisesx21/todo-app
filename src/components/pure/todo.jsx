@@ -14,9 +14,13 @@ const Todo = ({ todo, remove, complete }) => {
     }
 
     return (
-        <div style={{width: "450px", background: "#eee", display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid white", borderRadius: "5px", padding: "0 25px"}}>
+        <div className='todocontainer'>
             {todoComplete()}
-            {todo.complete ? <h4 style={{textDecoration: "line-through", color: "#bbb"}}>{todo.description}</h4> : <h4>{todo.description}</h4>}
+            {todo.complete ? 
+                <h4 style={{textDecoration: "line-through", color: "hsl(236, 9%, 61%)", fontWeight: "400", fontSize: "1.1rem"}}>{todo.description}</h4> 
+                : 
+                <h4 style={{fontWeight: "400", fontSize: "1.1rem", color: "hsl(235, 19%, 35%)"}}>{todo.description}</h4>
+            }
             <img src={iconCross} alt="asd" onClick={()=>remove(todo)} style={{cursor: "pointer"}}></img>
         </div>
     );

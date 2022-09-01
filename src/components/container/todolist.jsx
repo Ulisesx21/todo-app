@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Filter from '../pure/todoFilter';
-import Todo from '../pure/todo';
 import TodoForm from '../pure/todoForm';
+import Todo from '../pure/todo';
+import TodoFilter from '../pure/todoFilter';
+import "../styles/todoList.css"
+import TodoMode from '../pure/todoMode';
 
 const Todolist = () => {
 
@@ -56,7 +58,8 @@ const Todolist = () => {
     
 
     return (
-        <div>
+        <div className='todoscontainer'>
+            <TodoMode></TodoMode>
             <TodoForm create={createTodo} ></TodoForm>
             {
                 todoFilter === "all" &&
@@ -82,7 +85,7 @@ const Todolist = () => {
                     )
                 }
             )}
-            <Filter filter={filterTodo} clear={clearCompletedTodo} todo={todoList}></Filter>
+            <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter}></TodoFilter>
         </div>
     );
 }

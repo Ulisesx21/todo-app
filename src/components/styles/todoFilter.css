@@ -1,0 +1,35 @@
+.filtercontainer {
+    display: flex;
+    justify-content: space-between;
+    width: 490px;
+    background: white;
+    padding: 0 25px;
+    border-radius: 0 0 5px 5px;
+}
+
+.filter {
+    margin-left: 15px;
+    color: hsl(236, 9%, 61%);
+    cursor: pointer;
+}
+
+.filter:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.items-left {
+    color: hsl(236, 9%, 61%);
+}
+
+.clear-complete {
+    color: hsl(236, 9%, 61%);
+    cursor: pointer;
+}
+
+.clear-complete:hover {
+    color: hsl(235, 19%, 35%);
+}
+
+.selected {
+    color: hsl(220, 98%, 61%);
+}
