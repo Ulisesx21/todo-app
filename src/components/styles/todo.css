@@ -38,6 +38,12 @@ h4 {
     border-radius: 5px 5px 0 0;
 }
 
+.D {
+    background: hsl(235, 24%, 19%);
+    border-bottom: 1px solid rgb(77, 77, 77);
+    color: white;
+}
+
 
 
 

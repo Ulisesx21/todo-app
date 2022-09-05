@@ -10,3 +10,8 @@
   min-height: 100%;
 }
 
+.D-app{
+  background: hsl(235, 21%, 11%);
+  color: white
+}
+

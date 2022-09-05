@@ -1,10 +1,10 @@
 import React from 'react';
 import "../styles/todoFilter.css"
 
-const Filter = ({ filter, clear, todo, filterType }) => {
+const Filter = ({ filter, clear, todo, filterType, mode }) => {
 
     return (
-        <div className='filtercontainer'>
+        <div className={`filtercontainer ${mode && "D-filter"}`}>
             <h5 className='items-left'>{todo.length} item{`${todo.length === 1 ? "" : "s"}`} left</h5>
             <div style={{display: "flex", justifyContent: "center"}}>
                 <h5 className={`filter ${filterType === "all" && "selected"} `} onClick={()=>filter("all")} >All</h5>

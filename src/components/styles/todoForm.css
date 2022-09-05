@@ -22,6 +22,10 @@
     width: 23px;
     border-radius: 50%;
     border: 1px solid #bbb;
-    cursor: pointer;
     margin: 0 20px 0 25px;
+}
+
+.D-form{
+    color: white;
+    background: hsl(235, 24%, 19%);
 }

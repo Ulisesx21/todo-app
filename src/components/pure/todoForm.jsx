@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import "../styles/todoForm.css"
 
-const TodoForm = ({ create }) => {
+const TodoForm = ({ create, mode }) => {
 
     const inputRef = useRef()
 
@@ -24,9 +24,9 @@ const TodoForm = ({ create }) => {
 
     return (
         <div style={{margin: "20px 0"}}>
-            <form onSubmit={addTodo} className="form">
+            <form onSubmit={addTodo} className={`form ${mode && "D-form"}`}>
                 <div className='uncheckform'></div>
-                <input ref={inputRef} className="inputform" placeholder='Create a new todo...'></input>
+                <input ref={inputRef} className={`inputform ${mode && "D-form"}`} placeholder='Create a new todo...'></input>
             </form>
         </div>
     );

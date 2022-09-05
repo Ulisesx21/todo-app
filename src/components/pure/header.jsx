@@ -1,10 +1,11 @@
 import React from 'react';
-import img from "../images/bg-desktop-light.jpg"
+import imgLight from "../images/bg-desktop-light.jpg"
+import imgDark from "../images/bg-desktop-dark.jpg"
 
-const Header = () => {
+const Header = ({ mode }) => {
     return (
         <div style={{height: "5vh", width: "100%"}}>
-            <img src={img} alt="asd" style={{width: "100%"}}></img>
+            <img src={mode ? imgDark : imgLight} alt="asd" style={{width: "100%", height: "300px"}}></img>
         </div>
     );
 }

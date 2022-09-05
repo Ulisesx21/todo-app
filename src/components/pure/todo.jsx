@@ -3,7 +3,7 @@ import iconCross from "../icons/icon-cross.svg"
 import iconCheck from "../icons/icon-check.svg"
 import "../styles/todo.css"
 
-const Todo = ({ todo, remove, complete }) => {
+const Todo = ({ todo, remove, complete, mode }) => {
 
     function todoComplete(){
         if(todo.complete){
@@ -14,7 +14,7 @@ const Todo = ({ todo, remove, complete }) => {
     }
 
     return (
-        <div className='todocontainer'>
+        <div className={`todocontainer ${mode && "D"}`}>
             {todoComplete()}
             {todo.complete ? 
                 <h4 style={{textDecoration: "line-through", color: "hsl(236, 9%, 61%)", fontWeight: "400", fontSize: "1.1rem"}}>{todo.description}</h4> 

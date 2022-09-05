@@ -5,10 +5,11 @@ import TodoFilter from '../pure/todoFilter';
 import "../styles/todoList.css"
 import TodoMode from '../pure/todoMode';
 
-const Todolist = () => {
+const Todolist = ({ changeModeApp }) => {
 
     const [todoList, setTodos] = useState([]);
     const [todoFilter, setTodoFilter] = useState("all");
+    const [mode, setMode] = useState(false);
 
 
     useEffect(() => {
@@ -55,37 +56,40 @@ const Todolist = () => {
         localStorage.setItem("todoList", JSON.stringify(clearCompletes))
     }
 
+    function todoFilterRender(todoFilter){
+        if(todoFilter === "all"){
+            return (
+                todoList.map((todo, index) => 
+                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                ))
+        }
+        if(todoFilter === "complete"){
+            return (
+                todoList.filter(todo => todo.complete).map((todo, index) => 
+                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                ))
+        }
+        if(todoFilter === "active"){
+            return (
+                todoList.filter(todo => !todo.complete).map((todo, index) => 
+                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                ))
+        }
+    }
+
+    function changeMode(){
+        setMode(!mode)
+        changeModeApp(mode)
+    }
+
     
 
     return (
         <div className='todoscontainer'>
-            <TodoMode></TodoMode>
-            <TodoForm create={createTodo} ></TodoForm>
-            {
-                todoFilter === "all" &&
-                todoList.map((todo, index) => {
-                    return (
-                        <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo}></Todo>
-                    )
-                }
-            )}
-            {
-                todoFilter === "complete" &&
-                todoList.filter(todo => todo.complete).map((todo, index) => {
-                    return (
-                        <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo}></Todo>
-                    )
-                }
-            )}
-            {
-                todoFilter === "active" &&
-                todoList.filter(todo => !todo.complete).map((todo, index) => {
-                    return (
-                        <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo}></Todo>
-                    )
-                }
-            )}
-            <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter}></TodoFilter>
+            <TodoMode changeMode={changeMode} mode={mode}></TodoMode>
+            <TodoForm create={createTodo} mode={mode}></TodoForm>
+            {todoFilterRender(todoFilter)}
+            <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>
         </div>
     );
 }
