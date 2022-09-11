@@ -6,6 +6,7 @@
     border: none;
     outline: none;
     border-radius: 5px;
+    height: 60px;
 }
 
 .form {
@@ -18,8 +19,8 @@
 }
 
 .uncheckform {
-    height: 23px;
-    width: 23px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
     border: 1px solid #bbb;
     margin: 0 20px 0 25px;

@@ -4,8 +4,8 @@ import imgDark from "../images/bg-desktop-dark.jpg"
 
 const Header = ({ mode }) => {
     return (
-        <div style={{height: "5vh", width: "100%"}}>
-            <img src={mode ? imgDark : imgLight} alt="asd" style={{width: "100%", height: "300px"}}></img>
+        <div style={{height: "4vh", width: "100%"}}>
+            <img src={mode ? imgDark : imgLight} alt="imgDark-imgLight" style={{width: "100%", height: "300px"}}></img>
         </div>
     );
 }

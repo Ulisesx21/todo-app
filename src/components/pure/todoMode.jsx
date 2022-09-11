@@ -7,7 +7,7 @@ const TodoMode = ({ changeMode, mode }) => {
     return (
         <div className='todo-mode-container'>
             <h1 className='mode-title'>T  O  D  O</h1>
-            <img src={mode ? Sun : Moon} alt="asd" className='moon' onClick={()=> changeMode()}></img>
+            <img src={mode ? Sun : Moon} alt="Sun-Moon" className='moon' onClick={()=> changeMode()}></img>
         </div>
     );
 }

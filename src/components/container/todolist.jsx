@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TodoForm from '../pure/todoForm';
 import Todo from '../pure/todo';
 import TodoFilter from '../pure/todoFilter';
@@ -12,12 +12,31 @@ const Todolist = ({ changeModeApp }) => {
     const [mode, setMode] = useState(false);
 
 
+    const dragItem = useRef(null)
+    const dragOverItem = useRef(null)
+
+
     useEffect(() => {
+
+        let todosFirst = [{complete: true, description: "10 minutes meditation"},
+                        {complete: false, description: "Read for 1 hour"},
+                        {complete: true, description: "Complete Todo App on Frontend Mentor"},
+                        {complete: false, description: "Pick up groceries"},
+                        ]
+
         let storageTodos = JSON.parse(localStorage.getItem("todoList"))
 
         if(storageTodos !== null){
             let todos = JSON.parse(localStorage.getItem("todoList"))
             setTodos(todos)
+        }else{
+            setTodos(todosFirst)
+        }
+
+        let storageMode = localStorage.getItem("mode")
+
+        if(storageMode !== null){
+            setMode(!JSON.parse(storageMode))
         }
     }, [])
     
@@ -60,7 +79,14 @@ const Todolist = ({ changeModeApp }) => {
         if(todoFilter === "all"){
             return (
                 todoList.map((todo, index) => 
-                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}
+                draggable 
+                onDragStart={() => dragItem.current = index}
+                onDragEnter={() => dragOverItem.current = index}
+                onDragEnd={todoSort}
+                onDragOver={(e)=> e.preventDefault()}
+                >
+                </Todo>
                 ))
         }
         if(todoFilter === "complete"){
@@ -80,15 +106,33 @@ const Todolist = ({ changeModeApp }) => {
     function changeMode(){
         setMode(!mode)
         changeModeApp(mode)
+        localStorage.setItem("mode",mode)
     }
 
-    
 
+    const todoSort = () => {
+
+        let todoItems = [...todoList];
+
+        const dragItemContent = todoItems.splice(dragItem.current,1)[0]
+
+        todoItems.splice(dragOverItem.current, 0, dragItemContent)
+    
+        dragItem.current = null;
+        dragOverItem.current = null;
+    
+        setTodos(todoItems)
+        localStorage.setItem("todoList", JSON.stringify(todoItems))
+      }
+
+    
     return (
         <div className='todoscontainer'>
             <TodoMode changeMode={changeMode} mode={mode}></TodoMode>
             <TodoForm create={createTodo} mode={mode}></TodoForm>
-            {todoFilterRender(todoFilter)}
+            <div>
+                {todoFilterRender(todoFilter)}
+            </div>
             <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>
         </div>
     );

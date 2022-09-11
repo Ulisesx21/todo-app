@@ -14,11 +14,20 @@
     margin-left: 15px;
     color: hsl(236, 9%, 61%);
     cursor: pointer;
-    
 }
 
 .filter:hover {
     color: hsl(235, 19%, 35%);
+}
+
+.filter-D{
+    margin-left: 15px;
+    color: hsl(236, 9%, 61%);
+    cursor: pointer;
+}
+
+.filter-D:hover{
+    color: hsl(236, 33%, 92%);
 }
 
 .items-left {
@@ -32,8 +41,18 @@
     font-weight: 400;
 }
 
+.clear-complete-D {
+    color: hsl(236, 9%, 61%);
+    cursor: pointer;
+    font-weight: 400;
+}
+
 .clear-complete:hover {
     color: hsl(235, 19%, 35%);
+}
+
+.clear-complete-D:hover {
+    color: hsl(236, 33%, 92%);
 }
 
 .selected {
@@ -43,4 +62,16 @@
 .D-filter{
     color: white;
     background: hsl(235, 24%, 19%);
+}
+
+.dndAdvise {
+    margin-top: 50px;
+    color: hsl(236, 9%, 61%);
+}
+
+
+@media (max-width: 650px){
+    .filtercontainer{
+        width: 80vw;
+    }
 }
