@@ -12,7 +12,6 @@
 .form {
     display: flex;
     align-items: center;
-    width: 540px;
     background: white;
     border-radius: 5px;
     height: 65px;
@@ -23,10 +22,48 @@
     width: 24px;
     border-radius: 50%;
     border: 1px solid #bbb;
-    margin: 0 20px 0 25px;
+    margin: 0 20px 0 20px;
 }
 
 .D-form{
     color: white;
     background: hsl(235, 24%, 19%);
+}
+
+.D-uncheck {
+    border: 1px solid hsl(233, 14%, 35%);
+}
+
+.form-container {
+    width: 100%;
+}
+
+
+@media (max-width: 1280px){
+    .inputform {
+        height: 55px;
+        font-size: 1rem;
+    }
+
+    .form {
+        height: 60px;
+    }
+}
+
+
+@media (max-width: 650px){
+    
+    .inputform {
+        height: 50px;
+        font-size: 0.76rem;
+    }
+
+    .form {
+        height: 55px;
+    }
+
+    .uncheckform {
+        transform: scale(0.8);
+        margin: 0 10px 0 20px;
+    }
 }

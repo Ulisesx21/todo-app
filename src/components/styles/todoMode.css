@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 540px;
+    width: 100%;
 }
 
 .mode-title{
@@ -13,5 +13,35 @@
 .moon{
     height: 25px;
     width: 25px;
+    margin-bottom: 5px;
     cursor: pointer;
+}
+
+@media (max-width: 1280px){
+    .mode-title{
+        font-size: 2.2rem;
+    }
+
+    .moon{
+        height: 22px;
+        width: 22px;
+    }
+}
+
+
+@media (max-width: 650px){
+    .mode-title{
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px){
+    .mode-title{
+        font-size: 1.8rem;
+    }
+
+    .moon{
+        height: 20px;
+        width: 20px;
+    }
 }

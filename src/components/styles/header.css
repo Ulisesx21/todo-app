@@ -1,0 +1,27 @@
+.img-change-max {
+    width: 100%;
+    height: 300px;
+}
+
+.img-change-min {
+    display: none;
+}
+
+@media (max-width: 1280px){
+    .img-change-max{
+        height: 260px;
+    }
+}
+
+
+@media (max-width: 650px){
+    .img-change-max{
+        display: none;
+    }
+
+    .img-change-min{
+        width: 100%;
+        height: 240px;
+        display: block;
+    }
+}

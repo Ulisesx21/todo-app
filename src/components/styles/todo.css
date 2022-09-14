@@ -49,9 +49,13 @@ h4 {
 
 .complete{
     text-decoration: line-through;
-    color: hsl(236, 9%, 61%);
+    color: hsl(233, 11%, 84%);
     font-weight: 400; 
     font-size: 1.1rem
+}
+
+.c-D {
+    color:hsl(233, 14%, 35%);
 }
 
 .incomplete {
@@ -68,18 +72,18 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 540px;
     background: white;
     border-bottom: 1px solid #ddd;
     height: 65px;
     cursor: pointer;
+    width: 100%;
 }
 
 .todocontainer:active {
     cursor: pointer;
 }
 
-.todocontainer:nth-child(1) {
+.todocontainer:nth-child(3) {
     border-radius: 5px 5px 0 0;
 }
 
@@ -91,13 +95,32 @@ h4 {
 
 .cross {
     cursor: pointer; 
-    margin: 0 20px 0 0;
+    margin: 0 20px 0 10px;
+}
+
+.img-check {
+    display: block;
 }
 
 
+@media (max-width: 1280px){
+
+    .todocontainer{
+        height: 60px;
+    }
+
+    .complete{
+        font-size: 1rem;
+    }
+    
+    .incomplete {
+        font-size: 1rem;
+    }
+
+}
+
 @media (max-width: 650px){
     .todocontainer{
-        width: 70vw;
         height: 55px;
     }
 
@@ -132,15 +155,16 @@ h4 {
 }
 
 @media (max-width: 480px){
-    .todocontainer{
-        width: 90vw;
-    }
-
+    
     .complete{
         font-size: 0.76rem;
     }
     
     .incomplete {
         font-size: 0.76rem;
+    }
+
+    h4 {
+        width: 75%;
     }
 }

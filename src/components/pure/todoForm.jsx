@@ -23,9 +23,9 @@ const TodoForm = ({ create, mode }) => {
     }
 
     return (
-        <div style={{margin: "20px 0"}}>
+        <div style={{margin: "20px 0"}} className="form-container">
             <form onSubmit={addTodo} className={`form ${mode && "D-form"}`}>
-                <div className='uncheckform'></div>
+                <div className={`uncheckform ${mode && "D-uncheck"}`}></div>
                 <input ref={inputRef} className={`inputform ${mode && "D-form"}`} placeholder='Create a new todo...'></input>
             </form>
         </div>

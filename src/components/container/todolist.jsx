@@ -130,9 +130,7 @@ const Todolist = ({ changeModeApp }) => {
         <div className='todoscontainer'>
             <TodoMode changeMode={changeMode} mode={mode}></TodoMode>
             <TodoForm create={createTodo} mode={mode}></TodoForm>
-            <div>
-                {todoFilterRender(todoFilter)}
-            </div>
+            {todoFilterRender(todoFilter)}
             <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>
         </div>
     );

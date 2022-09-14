@@ -7,7 +7,7 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
 
     function todoComplete(){
         if(todo.complete){
-            return(<div className='check' onClick={() => complete(todo)}><img src={iconCheck} alt="check"></img></div>)
+            return(<div className='check' onClick={() => complete(todo)}><img src={iconCheck} alt="check" className='img-check'></img></div>)
         }else{
             return(<div className={`uncheck ${mode && "uncheck-D"}`} onClick={() => complete(todo)}><div className={`uncheck-inside ${mode && "uncheck-inside-D"}`}></div></div>)
         }
@@ -17,7 +17,7 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
         <div className={`todocontainer ${mode && "D"}`} {...props}>
             {todoComplete()}
             {todo.complete ? 
-                <h4 className={`complete`}>{todo.description}</h4> 
+                <h4 className={`complete ${mode && "c-D"}`}>{todo.description}</h4> 
                 : 
                 <h4 className={`incomplete ${mode && "incomplete-D"}`}>{todo.description}</h4>
             }

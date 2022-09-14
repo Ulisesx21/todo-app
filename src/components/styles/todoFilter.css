@@ -2,12 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 490px;
+    width: 100%;
     background: white;
     padding: 0 25px;
     border-radius: 0 0 5px 5px;
     height: 55px;
     font-size: 1.06rem;
+    box-sizing: border-box;
 }
 
 .filter {
@@ -22,7 +23,7 @@
 
 .filter-D{
     margin-left: 15px;
-    color: hsl(236, 9%, 61%);
+    color: hsl(234, 11%, 52%);
     cursor: pointer;
 }
 
@@ -31,7 +32,7 @@
 }
 
 .items-left {
-    color: hsl(236, 9%, 61%);
+    color: hsl(234, 11%, 52%);
     font-weight: 400;
 }
 
@@ -42,7 +43,7 @@
 }
 
 .clear-complete-D {
-    color: hsl(236, 9%, 61%);
+    color: hsl(234, 11%, 52%);
     cursor: pointer;
     font-weight: 400;
 }
@@ -59,10 +60,7 @@
     color: hsl(220, 98%, 61%);
 }
 
-.D-filter{
-    color: white;
-    background: hsl(235, 24%, 19%);
-}
+
 
 .dndAdvise {
     margin-top: 50px;
@@ -70,8 +68,58 @@
 }
 
 
+.filter-bar-max {
+    display: flex;
+}
+
+
+.filter-bar-min {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 1.06rem;
+    background: hsl(235, 24%, 19%);
+}
+
+.D-filter {
+    color: white;
+    background: hsl(235, 24%, 19%);
+}
+
+
 @media (max-width: 650px){
-    .filtercontainer{
-        width: 80vw;
+    .filter-bar-max{
+        display: none;
+    }
+
+    .filter-bar-min{
+        display: flex;
+        background: white;
+        margin-top: 15px;
+        border-radius: 5px;
+        height: 50px;
+    }
+
+    .items-left {
+        font-size: 0.76rem;
+    }
+
+    .clear-complete {
+        font-size: 0.76rem;
+    }
+
+    .clear-complete-D {
+        font-size: 0.76rem;
+    }
+
+    .dndAdvise {
+        margin-top: 45px;
+        font-size: 0.8rem;
+    }
+
+    .D-filter {
+        color: white;
+        background: hsl(235, 24%, 19%);
     }
 }
