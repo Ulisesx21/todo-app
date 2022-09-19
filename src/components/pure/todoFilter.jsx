@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/todoFilter.css"
+import "../../styles/todoFilter.css"
 
 const Filter = ({ filter, clear, todo, filterType, mode }) => {
 

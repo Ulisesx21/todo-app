@@ -1,9 +1,9 @@
 import React from 'react';
-import imgLight from "../images/bg-desktop-light.jpg"
-import imgDark from "../images/bg-desktop-dark.jpg"
-import imgLightMobile from "../images/bg-mobile-light.jpg"
-import imgDarkMobile from "../images/bg-mobile-dark.jpg"
-import "../styles/header.css"
+import imgLight from "../../images/bg-desktop-light.jpg"
+import imgDark from "../../images/bg-desktop-dark.jpg"
+import imgLightMobile from "../../images/bg-mobile-light.jpg"
+import imgDarkMobile from "../../images/bg-mobile-dark.jpg"
+import "../../styles/header.css"
 
 const Header = ({ mode }) => {
     return (

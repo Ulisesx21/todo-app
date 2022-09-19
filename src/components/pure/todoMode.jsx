@@ -1,7 +1,7 @@
 import React from 'react';
-import Moon from "../icons/icon-moon.svg"
-import Sun from "../icons/icon-sun.svg"
-import "../styles/todoMode.css"
+import Moon from "../../icons/icon-moon.svg"
+import Sun from "../../icons/icon-sun.svg"
+import "../../styles/todoMode.css"
 
 const TodoMode = ({ changeMode, mode }) => {
     return (

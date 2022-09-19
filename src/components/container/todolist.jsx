@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import TodoForm from '../pure/todoForm';
 import Todo from '../pure/todo';
 import TodoFilter from '../pure/todoFilter';
-import "../styles/todoList.css"
+import "../../styles/todoList.css"
 import TodoMode from '../pure/todoMode';
 
 const Todolist = ({ changeModeApp }) => {
