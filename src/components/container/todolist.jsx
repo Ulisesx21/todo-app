@@ -46,7 +46,7 @@ const Todolist = ({ changeModeApp }) => {
         let index = todoList.indexOf(todo)
         tempTodos.splice(index, 1)
         setTodos(tempTodos)
-        localStorage.setItem("todoList", JSON.stringify(tempTodos))
+        setTodoListOnLocalStorage(tempTodos)
     }
 
     function completedTodo(todo) {
@@ -54,14 +54,14 @@ const Todolist = ({ changeModeApp }) => {
         let index = todoList.indexOf(todo)
         tempTodos[index].complete = !tempTodos[index].complete
         setTodos(tempTodos)
-        localStorage.setItem("todoList", JSON.stringify(tempTodos))
+        setTodoListOnLocalStorage(tempTodos)
     }
 
     function createTodo(todo){
         let tempTodos = [...todoList]
         tempTodos.push(todo)
         setTodos(tempTodos)
-        localStorage.setItem("todoList", JSON.stringify(tempTodos))
+        setTodoListOnLocalStorage(tempTodos)
     }
 
     function filterTodo(typeFilter) {
@@ -72,7 +72,11 @@ const Todolist = ({ changeModeApp }) => {
         let tempTodos = [...todoList]
         let clearCompletes = tempTodos.filter(todo => !todo.complete)
         setTodos(clearCompletes)
-        localStorage.setItem("todoList", JSON.stringify(clearCompletes))
+        setTodoListOnLocalStorage(clearCompletes)
+    }
+
+    function setTodoListOnLocalStorage(type){
+        localStorage.setItem("todoList", JSON.stringify(type))
     }
 
     function todoFilterRender(todoFilter){
@@ -131,7 +135,7 @@ const Todolist = ({ changeModeApp }) => {
             <TodoMode changeMode={changeMode} mode={mode}></TodoMode>
             <TodoForm create={createTodo} mode={mode}></TodoForm>
             {todoFilterRender(todoFilter)}
-            <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>
+            {todoList.length === 0 ? "" : <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>}
         </div>
     );
 }
