@@ -7,9 +7,17 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
 
     function todoComplete(){
         if(todo.complete){
-            return(<div className='check' onClick={() => complete(todo)}><img src={iconCheck} alt="check" className='img-check'></img></div>)
+            return(
+            <div className='check' onClick={() => complete(todo)}>
+                <img src={iconCheck} alt="check" className='img-check'></img>
+            </div>
+            )
         }else{
-            return(<div className={`uncheck ${mode && "uncheck-D"}`} onClick={() => complete(todo)}><div className={`uncheck-inside ${mode && "uncheck-inside-D"}`}></div></div>)
+            return(
+            <div className={`uncheck ${mode && "uncheck-D"}`} onClick={() => complete(todo)}>
+                <div className={`uncheck-inside ${mode && "uncheck-inside-D"}`}></div>
+            </div>
+            )
         }
     }
 

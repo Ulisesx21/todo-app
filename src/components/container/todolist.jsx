@@ -16,13 +16,15 @@ const Todolist = ({ changeModeApp }) => {
     const dragOverItem = useRef(null)
 
 
-    useEffect(() => {
+    useEffect(() => { 
 
-        let todosFirst = [{complete: true, description: "10 minutes meditation"},
-                        {complete: false, description: "Read for 1 hour"},
-                        {complete: true, description: "Complete Todo App on Frontend Mentor"},
-                        {complete: false, description: "Pick up groceries"},
-                        ]
+        let todosFirst = 
+        [
+            {complete: true, description: "10 minutes meditation"},
+            {complete: false, description: "Read for 1 hour"},
+            {complete: true, description: "Complete Todo App on Frontend Mentor"},
+            {complete: false, description: "Pick up groceries"},
+        ]
 
         let storageTodos = JSON.parse(localStorage.getItem("todoList"))
 
@@ -83,12 +85,17 @@ const Todolist = ({ changeModeApp }) => {
         if(todoFilter === "all"){
             return (
                 todoList.map((todo, index) => 
-                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}
-                draggable 
-                onDragStart={() => dragItem.current = index}
-                onDragEnter={() => dragOverItem.current = index}
-                onDragEnd={todoSort}
-                onDragOver={(e)=> e.preventDefault()}
+                <Todo 
+                    todo={todo} 
+                    key={index} 
+                    remove={removeTodo} 
+                    complete={completedTodo} 
+                    mode={mode}
+                    draggable 
+                    onDragStart={() => dragItem.current = index}
+                    onDragEnter={() => dragOverItem.current = index}
+                    onDragEnd={todoSort}
+                    onDragOver={(e)=> e.preventDefault()}
                 >
                 </Todo>
                 ))
@@ -96,13 +103,25 @@ const Todolist = ({ changeModeApp }) => {
         if(todoFilter === "complete"){
             return (
                 todoList.filter(todo => todo.complete).map((todo, index) => 
-                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                <Todo 
+                    todo={todo} 
+                    key={index} 
+                    remove={removeTodo} 
+                    complete={completedTodo} 
+                    mode={mode}>
+                </Todo>
                 ))
         }
         if(todoFilter === "active"){
             return (
                 todoList.filter(todo => !todo.complete).map((todo, index) => 
-                <Todo todo={todo} key={index} remove={removeTodo} complete={completedTodo} mode={mode}></Todo>
+                <Todo 
+                    todo={todo} 
+                    key={index} 
+                    remove={removeTodo} 
+                    complete={completedTodo} 
+                    mode={mode}>
+                </Todo>
                 ))
         }
     }
@@ -135,7 +154,14 @@ const Todolist = ({ changeModeApp }) => {
             <TodoMode changeMode={changeMode} mode={mode}></TodoMode>
             <TodoForm create={createTodo} mode={mode}></TodoForm>
             {todoFilterRender(todoFilter)}
-            {todoList.length === 0 ? "" : <TodoFilter filter={filterTodo} clear={clearCompletedTodo} todo={todoList} filterType={todoFilter} mode={mode}></TodoFilter>}
+            {todoList.length > 0 && 
+            <TodoFilter 
+                filter={filterTodo} 
+                clear={clearCompletedTodo} 
+                todo={todoList} 
+                filterType={todoFilter} 
+                mode={mode}>
+            </TodoFilter>}
         </div>
     );
 }

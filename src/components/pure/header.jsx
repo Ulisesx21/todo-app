@@ -8,8 +8,15 @@ import "../../styles/header.css"
 const Header = ({ mode }) => {
     return (
         <div style={{height: "4vh", width: "100%"}}>
-            <img src={mode ? imgDark : imgLight} alt="imgDark-imgLight" className="img-change-max"></img>
-            <img src={mode ? imgDarkMobile : imgLightMobile} alt="imgDark-imgLight" className="img-change-min"></img>
+            <img src={mode ? imgDark : imgLight} 
+                alt="imgDark-imgLight" 
+                className="img-change-max">
+            </img>
+            <img 
+                src={mode ? imgDarkMobile : imgLightMobile} 
+                alt="imgDark-imgLight" 
+                className="img-change-min">
+            </img>
         </div>
     );
 }
