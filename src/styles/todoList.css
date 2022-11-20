@@ -26,3 +26,22 @@
         width: 90vw;
     }
 }
+
+.ave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 50%;
+    background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+
+.ave2 {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: transparent;
+    background: white;
+}

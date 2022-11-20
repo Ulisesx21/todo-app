@@ -162,6 +162,9 @@ const Todolist = ({ changeModeApp }) => {
                 filterType={todoFilter} 
                 mode={mode}>
             </TodoFilter>}
+            <div className='ave'>
+                <div className='ave2'></div>
+            </div>
         </div>
     );
 }

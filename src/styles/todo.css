@@ -16,6 +16,7 @@
     align-items: center;
     height: 26px;
     width: 26px;
+    min-width: 26px;
     border-radius: 50%;
     background: #bbb;
     cursor: pointer;
