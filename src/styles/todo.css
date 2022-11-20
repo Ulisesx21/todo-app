@@ -4,6 +4,7 @@
     align-items: center;
     height: 26px;
     width: 26px;
+    min-width: 26px;
     border-radius: 50%;
     background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     cursor: pointer;
@@ -126,16 +127,25 @@ h4 {
     }
 
     .check {
-        transform: scale(0.8);
+        height: 20px;
+        width: 20px;
+        min-width: 20px;
+        max-width: 20px;
     }
 
     .uncheck {
-        transform: scale(0.8);
+        height: 20px;
+        width: 20px;
+        min-width: 20px;
+        max-width: 20px;
         margin: 0 0 0 20px;
     }
 
     .uncheck-inside {
-        transform: scale(0.9);
+        height: 18px;
+        width: 18px;
+        min-width: 18px;
+        max-width: 18px;
     }
 
     .complete{
@@ -152,6 +162,10 @@ h4 {
 
     h4{
         padding: 0 0 0 10px;
+    }
+
+    .img-check {
+        transform: scale(0.8);
     }
 }
 
