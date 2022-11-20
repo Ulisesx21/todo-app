@@ -130,14 +130,12 @@ h4 {
         height: 20px;
         width: 20px;
         min-width: 20px;
-        max-width: 20px;
     }
 
     .uncheck {
         height: 20px;
         width: 20px;
         min-width: 20px;
-        max-width: 20px;
         margin: 0 0 0 20px;
     }
 
@@ -145,7 +143,6 @@ h4 {
         height: 18px;
         width: 18px;
         min-width: 18px;
-        max-width: 18px;
     }
 
     .complete{
