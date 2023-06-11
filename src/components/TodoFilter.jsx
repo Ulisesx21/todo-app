@@ -1,68 +1,71 @@
-import React from "react";
-import "../../styles/todoFilter.css";
+import "../styles/todoFilter.css";
+import { useTodos } from "../hooks/useTodos";
 
-const Filter = ({ filter, clear, todo, filterType, mode }) => {
+const TodoFilter = () => {
+
+  const { todosState, removeCompleted, mode, filter, setFilter } = useTodos();
+
   return (
     <>
       <div className={`filtercontainer ${mode && "D-filter"}`}>
         <h5 className="items-left">
-          {todo.length} item{`${todo.length === 1 ? "" : "s"}`} left
+          {todosState.length} item{`${todosState.length === 1 ? "" : "s"}`} left
         </h5>
         <div className="filter-bar-max">
           <h5
-            className={`filter ${filterType === "all" && "selected"} ${
+            className={`filter ${filter === "All" && "selected"} ${
               mode && "filter-D"
             }`}
-            onClick={() => filter("all")}
+            onClick={() => setFilter("All")}
           >
             All
           </h5>
           <h5
-            className={`filter ${filterType === "active" && "selected"} ${
+            className={`filter ${filter === "Active" && "selected"} ${
               mode && "filter-D"
             }`}
-            onClick={() => filter("active")}
+            onClick={() => setFilter("Active")}
           >
             Active
           </h5>
           <h5
-            className={`filter ${filterType === "complete" && "selected"} ${
+            className={`filter ${filter === "Completed" && "selected"} ${
               mode && "filter-D"
             }`}
-            onClick={() => filter("complete")}
+            onClick={() => setFilter("Completed")}
           >
             Completed
           </h5>
         </div>
         <h5
           className={`${mode ? "clear-complete-D" : "clear-complete"}`}
-          onClick={() => clear()}
+          onClick={removeCompleted}
         >
           Clear Completed
         </h5>
       </div>
       <div className={`filter-bar-min ${mode && "D-filter"}`}>
         <h5
-          className={`filter ${filterType === "all" && "selected"} ${
+          className={`filter ${filter === "All" && "selected"} ${
             mode && "filter-D"
           }`}
-          onClick={() => filter("all")}
+          onClick={() => setFilter("All")}
         >
           All
         </h5>
         <h5
-          className={`filter ${filterType === "active" && "selected"} ${
+          className={`filter ${filter === "Active" && "selected"} ${
             mode && "filter-D"
           }`}
-          onClick={() => filter("active")}
+          onClick={() => setFilter("Active")}
         >
           Active
         </h5>
         <h5
-          className={`filter ${filterType === "complete" && "selected"} ${
+          className={`filter ${filter === "Completed" && "selected"} ${
             mode && "filter-D"
           }`}
-          onClick={() => filter("complete")}
+          onClick={() => setFilter("Completed")}
         >
           Completed
         </h5>
@@ -72,4 +75,4 @@ const Filter = ({ filter, clear, todo, filterType, mode }) => {
   );
 };
 
-export default Filter;
+export default TodoFilter;

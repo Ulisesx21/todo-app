@@ -1,13 +1,15 @@
-import React from "react";
-import iconCross from "../../icons/icon-cross.svg";
-import iconCheck from "../../icons/icon-check.svg";
-import "../../styles/todo.css";
+import iconCross from "../assets/icons/icon-cross.svg";
+import iconCheck from "../assets/icons/icon-check.svg";
+import "../styles/todo.css";
+import { useTodos } from "../hooks/useTodos";
 
-const Todo = ({ todo, remove, complete, mode, ...props }) => {
+const TodoItem = ({ todo, ...props }) => {
+  const { toggleTodo, removeTodo, mode } = useTodos();
+
   function todoComplete() {
-    if (todo.complete) {
+    if (todo.completed) {
       return (
-        <div className="check" onClick={() => complete(todo)}>
+        <div className="check" onClick={() => toggleTodo(todo.id)}>
           <img src={iconCheck} alt="check" className="img-check"></img>
         </div>
       );
@@ -15,7 +17,7 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
       return (
         <div
           className={`uncheck ${mode && "uncheck-D"}`}
-          onClick={() => complete(todo)}
+          onClick={() => toggleTodo(todo.id)}
         >
           <div className={`uncheck-inside ${mode && "uncheck-inside-D"}`}></div>
         </div>
@@ -25,8 +27,8 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
 
   return (
     <div className={`todocontainer ${mode && "D"}`} {...props}>
-      {todoComplete()}
-      {todo.complete ? (
+      {todoComplete(toggleTodo)}
+      {todo.completed ? (
         <h4 className={`complete ${mode && "c-D"}`}>{todo.description}</h4>
       ) : (
         <h4 className={`incomplete ${mode && "incomplete-D"}`}>
@@ -36,11 +38,11 @@ const Todo = ({ todo, remove, complete, mode, ...props }) => {
       <img
         src={iconCross}
         alt="cross"
-        onClick={() => remove(todo)}
+        onClick={() => removeTodo(todo.id)}
         className="cross"
       ></img>
     </div>
   );
 };
 
-export default Todo;
+export default TodoItem;

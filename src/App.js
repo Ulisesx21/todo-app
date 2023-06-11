@@ -1,24 +1,16 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import Todolist from './components/container/todolist';
-import Header from './components/pure/header';
+import { useContext } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
+import { TodoContext } from "./context/TodoContext";
 
 function App() {
-
-  const [mode, setMode] = useState(false)
-
-  useEffect(()=>{
-    let storageMode = JSON.parse(localStorage.getItem("mode"))
-
-    if(storageMode !== null){
-      setMode(!storageMode)
-    }
-  },[])
+  const { mode } = useContext(TodoContext);
 
   return (
     <div className={`App ${mode && "D-app"}`}>
-      <Header mode={mode}></Header>
-      <Todolist changeModeApp={(mode)=>setMode(!mode)}></Todolist>
+      <Header />
+      <TodoList />
     </div>
   );
 }

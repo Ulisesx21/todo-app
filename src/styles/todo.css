@@ -77,12 +77,12 @@ h4 {
     background: white;
     border-bottom: 1px solid #ddd;
     height: 65px;
-    cursor: pointer;
+    cursor: grab;
     width: 100%;
 }
 
 .todocontainer:active {
-    cursor: pointer;
+    cursor: grabbing;
 }
 
 .todocontainer:nth-child(3) {
@@ -97,7 +97,8 @@ h4 {
 
 .cross {
     cursor: pointer; 
-    margin: 0 20px 0 10px;
+    margin: 0 16px 0 6px;
+    padding: 4px;
 }
 
 .img-check {

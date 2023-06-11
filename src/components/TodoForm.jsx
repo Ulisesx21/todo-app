@@ -1,27 +1,26 @@
-import React, { useRef } from "react";
-import "../../styles/todoForm.css";
+import { useRef } from "react";
+import "../styles/todoForm.css";
+import { useTodos } from "../hooks/useTodos";
 
-const TodoForm = ({ create, mode }) => {
+
+const TodoForm = () => {
+  const { addTodo, mode } = useTodos();
+
   const inputRef = useRef();
 
-  function addTodo(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let inputValue = inputRef.current.value;
 
-    const todo = {
-      complete: false,
-      description: inputValue,
-    };
-
-    if (inputValue.length <= 40 && inputValue !== "") {
-      create(todo);
+    const { value } = inputRef.current;
+    if (value.length <= 40 && value !== "") {
+      addTodo(value);
     }
     inputRef.current.value = "";
-  }
+  };
 
   return (
     <div style={{ margin: "20px 0" }} className="form-container">
-      <form onSubmit={addTodo} className={`form ${mode && "D-form"}`}>
+      <form onSubmit={handleSubmit} className={`form ${mode && "D-form"}`}>
         <div className={`uncheckform ${mode && "D-uncheck"}`}></div>
         <input
           ref={inputRef}
