@@ -20,9 +20,8 @@ export const TodoProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(todoReducer, INITIAL_STATE);
   // FILTER
   const [filter, setFilter] = useState(get("Filter") || "All");
-  // THEME MODE
-  const [mode, setMode] = useState(get("Mode") || false);
 
+  
   const addTodo = (todo) => {
     dispatch({ type: "addTodo", payload: todo });
   };
@@ -49,14 +48,6 @@ export const TodoProvider = ({ children }) => {
     set("Todos", todos);
   }, [todos]);
 
-  useEffect(() => {
-    set("Filter", filter);
-  }, [filter]);
-
-  useEffect(() => {
-    set("Mode", mode);
-  }, [mode]);
-
   return (
     <TodoContext.Provider
       value={{
@@ -69,8 +60,6 @@ export const TodoProvider = ({ children }) => {
         sortTodos,
         filter,
         setFilter,
-        mode,
-        setMode,
       }}
     >
       {children}

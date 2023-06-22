@@ -1,9 +1,5 @@
 export const get = (key) => {
-  if (key === "Todos" || key === "Mode") {
-    return JSON.parse(localStorage.getItem(key));
-  } else {
-    return localStorage.getItem(key);
-  }
+  return JSON.parse(localStorage.getItem(key));
 };
 
 export const set = (key, value) => {

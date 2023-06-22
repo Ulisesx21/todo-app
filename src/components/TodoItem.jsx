@@ -1,10 +1,14 @@
 import iconCross from "../assets/icons/icon-cross.svg";
 import iconCheck from "../assets/icons/icon-check.svg";
-import "../styles/todo.css";
 import { useTodos } from "../hooks/useTodos";
+import { useTheme } from "../context/ThemeContext";
+import "../styles/todo.css";
+
 
 const TodoItem = ({ todo, ...props }) => {
-  const { toggleTodo, removeTodo, mode } = useTodos();
+
+  const { toggleTodo, removeTodo } = useTodos();
+  const { isDark } = useTheme();
 
   function todoComplete() {
     if (todo.completed) {
@@ -16,22 +20,22 @@ const TodoItem = ({ todo, ...props }) => {
     } else {
       return (
         <div
-          className={`uncheck ${mode && "uncheck-D"}`}
+          className={`uncheck ${isDark && "uncheck-D"}`}
           onClick={() => toggleTodo(todo.id)}
         >
-          <div className={`uncheck-inside ${mode && "uncheck-inside-D"}`}></div>
+          <div className={`uncheck-inside ${isDark && "uncheck-inside-D"}`}></div>
         </div>
       );
     }
   }
 
   return (
-    <div className={`todocontainer ${mode && "D"}`} {...props}>
+    <div className={`todocontainer ${isDark && "D"}`} {...props} >
       {todoComplete(toggleTodo)}
       {todo.completed ? (
-        <h4 className={`complete ${mode && "c-D"}`}>{todo.description}</h4>
+        <h4 className={`complete ${isDark && "c-D"}`}>{todo.description}</h4>
       ) : (
-        <h4 className={`incomplete ${mode && "incomplete-D"}`}>
+        <h4 className={`incomplete ${isDark && "incomplete-D"}`}>
           {todo.description}
         </h4>
       )}

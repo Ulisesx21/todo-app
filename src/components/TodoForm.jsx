@@ -1,10 +1,13 @@
 import { useRef } from "react";
-import "../styles/todoForm.css";
 import { useTodos } from "../hooks/useTodos";
+import { useTheme } from "../context/ThemeContext";
+import "../styles/todoForm.css";
 
 
 const TodoForm = () => {
-  const { addTodo, mode } = useTodos();
+
+  const { addTodo } = useTodos();
+  const { isDark } = useTheme();
 
   const inputRef = useRef();
 
@@ -20,11 +23,11 @@ const TodoForm = () => {
 
   return (
     <div style={{ margin: "20px 0" }} className="form-container">
-      <form onSubmit={handleSubmit} className={`form ${mode && "D-form"}`}>
-        <div className={`uncheckform ${mode && "D-uncheck"}`}></div>
+      <form onSubmit={handleSubmit} className={`form ${isDark && "D-form"}`}>
+        <div className={`uncheckform ${isDark && "D-uncheck"}`}></div>
         <input
           ref={inputRef}
-          className={`inputform ${mode && "D-form"}`}
+          className={`inputform ${isDark && "D-form"}`}
           placeholder="Create a new todo..."
         ></input>
       </form>

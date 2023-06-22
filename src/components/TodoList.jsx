@@ -1,10 +1,10 @@
 import { useRef } from "react";
+import { useTodos } from "../hooks/useTodos";
 import TodoForm from "./TodoForm";
 import TodoFilter from "./TodoFilter";
-import "../styles/todoList.css";
 import TodoMode from "./TodoMode";
 import TodoItem from "./TodoItem";
-import { useTodos } from "../hooks/useTodos";
+import "../styles/todoList.css";
 
 
 const TodoList = () => {

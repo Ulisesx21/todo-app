@@ -1,14 +1,14 @@
-import { useContext } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
-import { TodoContext } from "./context/TodoContext";
+import { useTheme } from "./context/ThemeContext";
 
 function App() {
-  const { mode } = useContext(TodoContext);
+  
+  const { isDark } = useTheme();
 
   return (
-    <div className={`App ${mode && "D-app"}`}>
+    <div className={`App ${isDark && "D-app"}`}>
       <Header />
       <TodoList />
     </div>

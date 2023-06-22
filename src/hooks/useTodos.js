@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { TodoContext } from "../context/TodoContext";
 
 export const useTodos = () => {
-
   const {
     todos,
     dispatch,
@@ -13,8 +12,6 @@ export const useTodos = () => {
     sortTodos,
     filter,
     setFilter,
-    mode,
-    setMode,
   } = useContext(TodoContext);
 
   const todosFiltered = () => {
@@ -45,7 +42,5 @@ export const useTodos = () => {
     sortTodos,
     filter,
     setFilter,
-    mode,
-    setMode,
   };
 };
