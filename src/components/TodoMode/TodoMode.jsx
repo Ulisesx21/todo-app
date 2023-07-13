@@ -1,11 +1,11 @@
-import Moon from "../assets/icons/icon-moon.svg";
-import Sun from "../assets/icons/icon-sun.svg";
-import { useTheme } from "../context/ThemeContext";
-import "../styles/todoMode.css";
+import Moon from "../../assets/icons/icon-moon.svg";
+import Sun from "../../assets/icons/icon-sun.svg";
+import { useTheme } from "../../hooks/useTheme";
+import "./TodoMode.css";
 
 const TodoMode = () => {
 
-  const { isDark, setIsDark } = useTheme();
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <div className="todo-mode-container">
@@ -14,7 +14,7 @@ const TodoMode = () => {
         src={isDark ? Sun : Moon}
         alt="Sun-Moon"
         className="moon"
-        onClick={() => setIsDark(!isDark)}
+        onClick={() => toggleTheme()}
       ></img>
     </div>
   );

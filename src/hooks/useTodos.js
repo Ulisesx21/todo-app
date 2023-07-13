@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { TodoContext } from "../context/TodoContext";
+import { TodoContext } from "../context/TodosContext";
 
 export const useTodos = () => {
   const {
-    todos,
+    todosState,
     dispatch,
     addTodo,
     removeTodo,
@@ -14,8 +14,8 @@ export const useTodos = () => {
     setFilter,
   } = useContext(TodoContext);
 
-  const todosFiltered = () => {
-    return todos.filter((todo) => {
+  const todosFilter = () => {
+    return todosState.filter((todo) => {
       switch (filter) {
         case "All":
           return true;
@@ -27,13 +27,13 @@ export const useTodos = () => {
           return !todo.completed;
 
         default:
-          return todos;
+          return todo;
       }
     });
   };
 
   return {
-    todosState: todosFiltered(),
+    todos: todosFilter(),
     dispatch,
     addTodo,
     removeTodo,

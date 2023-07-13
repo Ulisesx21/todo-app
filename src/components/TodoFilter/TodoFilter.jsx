@@ -1,17 +1,19 @@
-import { useTodos } from "../hooks/useTodos";
-import { useTheme } from "../context/ThemeContext";
-import "../styles/todoFilter.css";
+import { useTodos } from "../../hooks/useTodos";
+import { useTheme } from "../../hooks/useTheme";
+import { useFilters } from "../../hooks/useFilters";
+import "./TodoFilter.css";
 
 const TodoFilter = () => {
 
-  const { todosState, removeCompleted, filter, setFilter } = useTodos();
+  const { todos, removeCompleted } = useTodos();
+  const { filter, setFilter } = useFilters();
   const { isDark } = useTheme();
 
   return (
     <>
       <div className={`filtercontainer ${isDark && "D-filter"}`}>
         <h5 className="items-left">
-          {todosState.length} item{`${todosState.length === 1 ? "" : "s"}`} left
+          {todos.length} item{`${todos.length === 1 ? "" : "s"}`} left
         </h5>
         <div className="filter-bar-max">
           <h5

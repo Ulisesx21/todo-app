@@ -1,11 +1,10 @@
 import { useRef } from "react";
-import { useTodos } from "../hooks/useTodos";
-import { useTheme } from "../context/ThemeContext";
-import "../styles/todoForm.css";
-
+import { useTodos } from "../../hooks/useTodos";
+import { useTheme } from "../../hooks/useTheme";
+import "./TodoForm.css";
 
 const TodoForm = () => {
-
+  
   const { addTodo } = useTodos();
   const { isDark } = useTheme();
 

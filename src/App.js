@@ -1,7 +1,8 @@
+import Header from "./common/Header/Header";
+import { useTheme } from "./hooks/useTheme";
+import { Home } from "./pages/Home/Home";
 import "./App.css";
-import Header from "./components/Header";
-import TodoList from "./components/TodoList";
-import { useTheme } from "./context/ThemeContext";
+
 
 function App() {
   
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className={`App ${isDark && "D-app"}`}>
       <Header />
-      <TodoList />
+      <Home />
     </div>
   );
 }

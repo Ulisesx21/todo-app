@@ -1,23 +1,17 @@
 import { useRef } from "react";
-import { useTodos } from "../hooks/useTodos";
-import TodoForm from "./TodoForm";
-import TodoFilter from "./TodoFilter";
-import TodoMode from "./TodoMode";
-import TodoItem from "./TodoItem";
-import "../styles/todoList.css";
-
+import { useTodos } from "../../hooks/useTodos";
+import TodoItem from "../TodoItem/TodoItem";
+import "./TodoList.css";
 
 const TodoList = () => {
-  const { todosState, sortTodos } = useTodos();
+  const { todos, sortTodos } = useTodos();
 
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
 
   return (
-    <div className="todoscontainer">
-      <TodoMode />
-      <TodoForm />
-      {todosState.map((todo, index) => (
+    <ul className="list-container">
+      {todos.map((todo, index) => (
         <TodoItem
           todo={todo}
           key={index}
@@ -28,8 +22,7 @@ const TodoList = () => {
           onDragOver={(e) => e.preventDefault()}
         />
       ))}
-      <TodoFilter />
-    </div>
+    </ul>
   );
 };
 

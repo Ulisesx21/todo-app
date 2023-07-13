@@ -1,9 +1,8 @@
-import iconCross from "../assets/icons/icon-cross.svg";
-import iconCheck from "../assets/icons/icon-check.svg";
-import { useTodos } from "../hooks/useTodos";
-import { useTheme } from "../context/ThemeContext";
-import "../styles/todo.css";
-
+import iconCross from "../../assets/icons/icon-cross.svg";
+import iconCheck from "../../assets/icons/icon-check.svg";
+import { useTodos } from "../../hooks/useTodos";
+import { useTheme } from "../../hooks/useTheme";
+import "./TodoItem.css";
 
 const TodoItem = ({ todo, ...props }) => {
 
@@ -23,14 +22,16 @@ const TodoItem = ({ todo, ...props }) => {
           className={`uncheck ${isDark && "uncheck-D"}`}
           onClick={() => toggleTodo(todo.id)}
         >
-          <div className={`uncheck-inside ${isDark && "uncheck-inside-D"}`}></div>
+          <div
+            className={`uncheck-inside ${isDark && "uncheck-inside-D"}`}
+          ></div>
         </div>
       );
     }
   }
 
   return (
-    <div className={`todocontainer ${isDark && "D"}`} {...props} >
+    <li className={`todocontainer ${isDark && "D"}`} {...props}>
       {todoComplete(toggleTodo)}
       {todo.completed ? (
         <h4 className={`complete ${isDark && "c-D"}`}>{todo.description}</h4>
@@ -45,7 +46,7 @@ const TodoItem = ({ todo, ...props }) => {
         onClick={() => removeTodo(todo.id)}
         className="cross"
       ></img>
-    </div>
+    </li>
   );
 };
 
