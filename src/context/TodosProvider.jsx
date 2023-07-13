@@ -1,10 +1,10 @@
 import { useEffect, useReducer, useState } from "react";
 import { getItem, setItem } from "../utils/localStorage";
 import { todosInitialState } from "../mocks/todosInitialState";
-import { todosReducer } from "./todosReducer"
+import { todosReducer } from "./todosReducer";
 import { TodoContext } from "./TodosContext";
 
-const INITIAL_STATE = getItem("Todos") || todosInitialState
+const INITIAL_STATE = getItem("Todos") || todosInitialState;
 
 export const TodoProvider = ({ children }) => {
   // STATE TODOS
@@ -12,20 +12,20 @@ export const TodoProvider = ({ children }) => {
   // FILTER
   const [filter, setFilter] = useState(getItem("Filter") || "All");
 
-  const addTodo = (todo) => {
-    dispatch({ type: "ADD_TODO", payload: todo });
+  const addTodo = (description) => {
+    dispatch({ type: "ADD_TODO", payload: { description } });
   };
 
   const removeTodo = (id) => {
-    dispatch({ type: "REMOVE_TODO", payload: id });
+    dispatch({ type: "REMOVE_TODO", payload: { id } });
   };
 
   const toggleTodo = (id) => {
-    dispatch({ type: "TOGGLE_TODO", payload: id });
+    dispatch({ type: "TOGGLE_TODO", payload: { id } });
   };
 
   const removeCompleted = () => {
-    dispatch({ type: "REMOVE_COMPLETED" });
+    dispatch({ type: "REMOVE_COMPLETED", payload: {} });
   };
 
   const sortTodos = (drag, over) => {
