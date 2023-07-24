@@ -13,10 +13,11 @@ const TodoList = () => {
   const handleDragEnd = (result) => {
     const { source, destination } = result;
 
+    if (!destination) return;
+
     if (
-      !destination ||
-      (source.index === destination.index &&
-        source.droppableId === destination.droppableId)
+      source.index === destination.index &&
+      source.droppableId === destination.droppableId
     ) {
       return;
     }
@@ -27,7 +28,11 @@ const TodoList = () => {
   return (
     <DragDropContext
       onDragEnd={handleDragEnd}
-      onDragUpdate={(e) => (destinationIdx.current = e.destination.index)}
+      onDragUpdate={(e) => {
+        if (e.destination) {
+          destinationIdx.current = e.destination.index;
+        }
+      }}
     >
       <StrictModeDroppable droppableId="todos">
         {(droppableProvided) => (
