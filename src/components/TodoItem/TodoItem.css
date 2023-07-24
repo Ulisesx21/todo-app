@@ -74,7 +74,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: rgb(255, 0, 0);
     border-bottom: 1px solid #ddd;
     height: 65px;
     cursor: grab;
@@ -109,6 +109,8 @@ p {
 
 .cross {
     cursor: pointer;
+    padding: 2px;
+    margin-right: -2px;
 }
 
 .img-check {
