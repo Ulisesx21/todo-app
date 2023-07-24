@@ -4,8 +4,7 @@ import { useTodos } from "../../hooks/useTodos";
 import { useTheme } from "../../hooks/useTheme";
 import "./TodoItem.css";
 
-const TodoItem = ({ todo, ...props }) => {
-
+const TodoItem = ({ todo, provided, snapshot, destinationIdx }) => {
   const { toggleTodo, removeTodo } = useTodos();
   const { isDark } = useTheme();
 
@@ -31,15 +30,24 @@ const TodoItem = ({ todo, ...props }) => {
   }
 
   return (
-    <li className={`todocontainer ${isDark && "D"}`} {...props}>
-      {todoComplete(toggleTodo)}
-      {todo.completed ? (
-        <h4 className={`complete ${isDark && "c-D"}`}>{todo.description}</h4>
-      ) : (
-        <h4 className={`incomplete ${isDark && "incomplete-D"}`}>
-          {todo.description}
-        </h4>
-      )}
+    <li
+      className={`todocontainer ${isDark && "D"} ${
+        (snapshot.isDragging && destinationIdx === 0) && "todocontainer-drag"
+      }`}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      ref={provided.innerRef}
+    >
+      <div className="check-description-container">
+        {todoComplete(toggleTodo)}
+        {todo.completed ? (
+          <p className={`complete ${isDark && "c-D"}`}>{todo.description}</p>
+        ) : (
+          <p className={`incomplete ${isDark && "incomplete-D"}`}>
+            {todo.description}
+          </p>
+        )}
+      </div>
       <img
         src={iconCross}
         alt="cross"

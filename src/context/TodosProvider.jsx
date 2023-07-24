@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from "react";
 import { getItem, setItem } from "../utils/localStorage";
 import { todosInitialState } from "../mocks/todosInitialState";
-import { todosReducer } from "./todosReducer";
+import { todosReducer } from "../reducers/todosReducer";
 import { TodoContext } from "./TodosContext";
 
 const INITIAL_STATE = getItem("Todos") || todosInitialState;

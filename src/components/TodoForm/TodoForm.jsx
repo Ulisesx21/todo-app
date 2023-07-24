@@ -4,7 +4,6 @@ import { useTheme } from "../../hooks/useTheme";
 import "./TodoForm.css";
 
 const TodoForm = () => {
-  
   const { addTodo } = useTodos();
   const { isDark } = useTheme();
 
@@ -14,14 +13,22 @@ const TodoForm = () => {
     e.preventDefault();
 
     const { value } = inputRef.current;
+
+    if (!value.includes(" ") && value.length <= 25) {
+      e.currentTarget[0].value = "";
+      addTodo(value);
+      return;
+    }
+
     if (value.length <= 40 && value !== "") {
       addTodo(value);
     }
-    inputRef.current.value = "";
+
+    e.currentTarget[0].value = "";
   };
 
   return (
-    <div style={{ margin: "20px 0" }} className="form-container">
+    <div className="form-container">
       <form onSubmit={handleSubmit} className={`form ${isDark && "D-form"}`}>
         <div className={`uncheckform ${isDark && "D-uncheck"}`}></div>
         <input

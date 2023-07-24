@@ -8,7 +8,6 @@
     border-radius: 50%;
     background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     cursor: pointer;
-    margin: 0 0 0 20px;
 }
 
 .uncheck {
@@ -21,7 +20,6 @@
     border-radius: 50%;
     background: #bbb;
     cursor: pointer;
-    margin: 0 0 0 20px;
 }
 
 .uncheck-D {
@@ -43,17 +41,18 @@
     background: hsl(235, 24%, 19%);
 }
 
-h4 {
-    width: 80%;
+p {
+    width: 100%;
+    height: 100%;
     text-align: left;
-    padding: 0 0 0 20px;
 }
 
-.complete{
+.complete {
     text-decoration: line-through;
     color: hsl(233, 11%, 84%);
     font-weight: 400; 
-    font-size: 1.1rem
+    font-size: 1.1rem;
+    margin-left: 20px;
 }
 
 .c-D {
@@ -64,6 +63,7 @@ h4 {
     font-weight: 400; 
     font-size: 1.1rem;
     color: hsl(235, 19%, 35%);
+    margin-left: 20px;
 }
 
 .incomplete-D {
@@ -72,14 +72,16 @@ h4 {
 
 .todocontainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: white;
     border-bottom: 1px solid #ddd;
     height: 65px;
     cursor: grab;
+    padding: 0 20px;
     width: 100%;
     list-style: none;
+    box-sizing: border-box;
 }
 
 .todocontainer:active {
@@ -90,16 +92,23 @@ h4 {
     border-radius: 5px 5px 0 0;
 }
 
+.todocontainer-drag {
+    border-radius: 5px 5px 0 0;
+}
+
 .D {
     background: hsl(235, 24%, 19%);
     border-bottom: 1px solid hsl(237, 14%, 26%);
     color: white;
 }
 
+.check-description-container {
+    display: flex;
+    align-items: center;
+}
+
 .cross {
-    cursor: pointer; 
-    margin: 0 16px 0 6px;
-    padding: 4px;
+    cursor: pointer;
 }
 
 .img-check {
@@ -110,7 +119,7 @@ h4 {
 @media (max-width: 1280px){
 
     .todocontainer{
-        height: 60px;
+        height: 61px;
     }
 
     .complete{
@@ -126,6 +135,7 @@ h4 {
 @media (max-width: 650px){
     .todocontainer{
         height: 55px;
+        padding: 0 15px;
     }
 
     .check {
@@ -138,7 +148,6 @@ h4 {
         height: 20px;
         width: 20px;
         min-width: 20px;
-        margin: 0 0 0 20px;
     }
 
     .uncheck-inside {
@@ -149,18 +158,16 @@ h4 {
 
     .complete{
         font-size: 0.85rem;
+        margin-left: 12px;
     }
     
     .incomplete {
         font-size: 0.85rem;
+        margin-left: 12px;
     }
 
     .cross {
         height: 12px;
-    }
-
-    h4{
-        padding: 0 0 0 10px;
     }
 
     .img-check {
@@ -168,7 +175,7 @@ h4 {
     }
 }
 
-@media (max-width: 480px){
+@media (max-width: 546px){
     
     .complete{
         font-size: 0.76rem;
@@ -178,7 +185,4 @@ h4 {
         font-size: 0.76rem;
     }
 
-    h4 {
-        width: 75%;
-    }
 }

@@ -4,5 +4,5 @@ import { ThemeContext } from "../context/ThemeContext";
 export const useTheme = () => {
   const { isDark, toggleTheme } = useContext(ThemeContext);
 
-  return { isDark, toggleTheme}
+  return { isDark, toggleTheme }
 };
