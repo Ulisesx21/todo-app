@@ -4,7 +4,7 @@ import { todosInitialState } from "../mocks/todosInitialState";
 import { todosReducer } from "../reducers/todosReducer";
 import { TodoContext } from "./TodosContext";
 
-const INITIAL_STATE = getItem("Todos") || todosInitialState;
+const INITIAL_STATE = getItem("todosState") || todosInitialState;
 
 export const TodoProvider = ({ children }) => {
   // STATE TODOS
@@ -35,7 +35,7 @@ export const TodoProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setItem("Todos", todosState);
+    setItem("todosState", todosState);
   }, [todosState]);
 
   return (

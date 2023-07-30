@@ -5,14 +5,14 @@ import { ThemeContext } from "./ThemeContext";
 
 export const ThemeProvider = ({ children }) => {
 
-  const [isDark, setIsDark] = useState(getItem("Mode") || false);
+  const [isDark, setIsDark] = useState(getItem("todoMode") || false);
 
   const toggleTheme = () => {
     setIsDark((isDark) => !isDark);
   };
 
   useEffect(() => {
-    setItem("Mode", isDark);
+    setItem("todoMode", isDark);
   }, [isDark]);
 
   return (

@@ -7,8 +7,9 @@ import { DragDropContext, Draggable } from "react-beautiful-dnd";
 import { StrictModeDroppable } from "../StrictModeDroppable";
 
 const TodoList = () => {
-  const destinationIdx = useRef();
   const { todos, sortTodos } = useTodos();
+
+  const destinationIdx = useRef();
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
