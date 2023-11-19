@@ -14,13 +14,13 @@ const TodoForm = () => {
 
     const { value } = inputRef.current;
 
-    if (!value.includes(" ") && value.length <= 25) {
-      e.currentTarget[0].value = "";
+    if (value !== "" && value.length <= 25 && !value.includes(" ")) {
       addTodo(value);
-      return;
+      e.currentTarget[0].value = "";
+      return
     }
-
-    if (value.length <= 40 && value !== "") {
+    
+    if (value.includes(" ") && value.length <= 40 && value !== "") {
       addTodo(value);
     }
 
@@ -33,6 +33,8 @@ const TodoForm = () => {
         <div className={`uncheckform ${isDark && "D-uncheck"}`}></div>
         <input
           ref={inputRef}
+          id="todo"
+          name="todo"
           className={`inputform ${isDark && "D-form"}`}
           placeholder="Create a new todo..."
         ></input>
